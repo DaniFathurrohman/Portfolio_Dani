@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tampilkan Semua</title>
+    <style>
+      .hidden-item {
+        display: none;
+      }
+      .show-all .hidden-item {
+        display: list-item; /* Atau 'block' jika lebih cocok */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Daftar Item</h1>
+    <ul id="item-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li class="hidden-item">Item 3</li>
+      <li class="hidden-item">Item 4</li>
+      <li class="hidden-item">Item 5</li>
+      <!-- Tambahkan lebih banyak item jika diperlukan -->
+    </ul>
+    <button id="toggle-button">Tampilkan Semua</button>
+
+    <script>
+      document
+        .getElementById("toggle-button")
+        .addEventListener("click", function () {
+          const itemList = document.getElementById("item-list");
+          const button = this;
+
+          // Toggle class 'show-all' pada elemen <ul>
+          if (itemList.classList.contains("show-all")) {
+            itemList.classList.remove("show-all");
+            button.textContent = "Tampilkan Semua";
+          } else {
+            itemList.classList.add("show-all");
+            button.textContent = "Sembunyikan";
+          }
+        });
+    </script>
+  </body>
+</html>
